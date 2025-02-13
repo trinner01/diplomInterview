@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  testMain
+    testFooter
 </template>
 
 <style scoped>
