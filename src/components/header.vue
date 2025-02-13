@@ -1,75 +1,69 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { 
-  registerUser, 
-  loginUser, 
-  logoutUser, 
-  currentUser 
-} from '../utils/auth';
+import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { registerUser, loginUser, logoutUser, currentUser } from '../utils/auth'
 
-// Состояния для модалок
-const showRegister = ref(false);
-const showLogin = ref(false);
-const regUsername = ref('');
-const regPassword = ref('');
-const loginUsername = ref('');
-const loginPassword = ref('');
+const router = useRouter()
 
-// Загрузка состояния при монтировании
+const showRegister = ref(false)
+const showLogin = ref(false)
+const regUsername = ref('')
+const regPassword = ref('')
+const loginUsername = ref('')
+const loginPassword = ref('')
+
 onMounted(() => {
-  const savedUser = localStorage.getItem('current_user');
-  if (savedUser) {
-    currentUser.value = JSON.parse(savedUser);
-  }
-});
+  const savedUser = localStorage.getItem('current_user')
+  if (savedUser) currentUser.value = JSON.parse(savedUser)
+})
 
-// Обработчики
 const handleRegister = () => {
   try {
     if (!regUsername.value || !regPassword.value) {
-      alert('Заполните все поля!');
-      return;
+      alert('Заполните все поля!')
+      return
     }
     
-    registerUser(regUsername.value, regPassword.value);
-    alert('Регистрация успешна!');
-    showRegister.value = false;
-    regUsername.value = '';
-    regPassword.value = '';
+    registerUser(regUsername.value, regPassword.value)
+    alert('Регистрация успешна!')
+    showRegister.value = false
+    regUsername.value = ''
+    regPassword.value = ''
   } catch (e) {
-    alert(e.message);
+    alert(e.message)
   }
-};
+}
 
 const handleLogin = () => {
   try {
     if (!loginUsername.value || !loginPassword.value) {
-      alert('Заполните все поля!');
-      return;
+      alert('Заполните все поля!')
+      return
     }
     
-    loginUser(loginUsername.value, loginPassword.value);
-    alert(`Добро пожаловать, ${currentUser.value.username}!`);
-    showLogin.value = false;
-    loginUsername.value = '';
-    loginPassword.value = '';
+    loginUser(loginUsername.value, loginPassword.value)
+    alert(`Добро пожаловать, ${currentUser.value.username}!`)
+    showLogin.value = false
+    loginUsername.value = ''
+    loginPassword.value = ''
   } catch (e) {
-    alert(e.message);
+    alert(e.message)
   }
-};
+}
 
 const handleLogout = () => {
-  logoutUser();
-  alert('Вы вышли из системы');
-};
+  logoutUser()
+  router.push('/')
+  window.location.reload() // Убрать принудительную перезагрузку
+}
 </script>
 
 <template>
   <header>
-    <h1 class="title">My App</h1>
+    <h1 class="title">Готов к собеседованию</h1>
     <div class="auth-section">
       <span v-if="currentUser" class="user-info">
-        Привет, {{ currentUser.username }}!
+        <router-link to="/cabinet" class="cabinet-link">Личный кабинет</router-link>
         <button @click="handleLogout" class="logout-btn">Выйти</button>
       </span>
       <div v-else class="auth-buttons">
@@ -78,7 +72,6 @@ const handleLogout = () => {
       </div>
     </div>
 
-    <!-- Модалка регистрации -->
     <div v-if="showRegister" class="modal">
       <div class="modal-content">
         <h3>Регистрация</h3>
@@ -91,7 +84,6 @@ const handleLogout = () => {
       </div>
     </div>
 
-    <!-- Модалка входа -->
     <div v-if="showLogin" class="modal">
       <div class="modal-content">
         <h3>Вход</h3>
@@ -119,6 +111,11 @@ header {
 .auth-buttons button {
   margin-left: 1rem;
   padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: white;
 }
 
 .modal {
@@ -145,6 +142,8 @@ header {
   width: 100%;
   margin: 0.5rem 0;
   padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .modal-actions {
@@ -158,8 +157,28 @@ header {
   background: #dc3545;
   color: white;
   border: none;
-  padding: 0.3rem 0.8rem;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.cabinet-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.cabinet-link:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 </style>
