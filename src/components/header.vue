@@ -50,12 +50,12 @@ const handleLogin = () => {
     alert(e.message)
   }
 }
-
 const handleLogout = () => {
   logoutUser()
-  router.push('/')
-  window.location.reload() // Убрать принудительную перезагрузку
+  // Используем именованный маршрут с учетом basePath
+  router.push({ name: 'Home' }).catch(() => {})
 }
+
 </script>
 
 <template>

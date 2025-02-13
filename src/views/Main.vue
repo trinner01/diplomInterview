@@ -1,4 +1,3 @@
-<!-- views/Main.vue -->
 <script setup>
 console.log('Main.vue загружен!')
 import { onMounted } from 'vue'
@@ -20,7 +19,6 @@ document.querySelector('main').style.display = 'block'
 .main-content {
   padding: 2rem;
   text-align: center;
-  min-height: calc(100vh - 160px);
 }
 
 h2 {

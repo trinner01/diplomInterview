@@ -1,28 +1,30 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import MainPage from '../views/Main.vue'
-import UserCabinet from '../views/UserCabinet.vue'
-
-const routes = [
-  { 
-    path: '/', 
-    component: () => import('../views/Main.vue') // Явный импорт
-  },
-  { 
-    path: '/cabinet', 
-    component: () => import('../views/UserCabinet.vue'),
-    meta: { requiresAuth: true }
-  }
-]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: () => import('../views/Main.vue')
+    },
+    {
+      path: '/cabinet',
+      name: 'Cabinet',
+      component: () => import('../views/UserCabinet.vue'),
+      meta: { requiresAuth: true }
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
+    }
+  ]
 })
 
 router.beforeEach((to, from, next) => {
   const isAuthenticated = localStorage.getItem('current_user')
   if (to.meta.requiresAuth && !isAuthenticated) {
-    next('/')
+    next({ name: 'Home' })
   } else {
     next()
   }
