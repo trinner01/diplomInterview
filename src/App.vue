@@ -1,19 +1,21 @@
 <script>
-  import header from './components/header.vue';
-  import footer from './components/footer.vue';
+  import Header from './components/header.vue';
+  import Footer from './components/footer.vue';
+  import Main from './components/main.vue'
 
   export default{
     components: {
-      header,
-      footer
+      Header,
+      Footer,
+      Main
     }
   }
 </script>
 
 <template>
-  <header />
-  <main>testMain</main>
-  <footer />
+  <Header />
+  <Main />
+  <Footer />
 </template>
 
 <style scoped>
