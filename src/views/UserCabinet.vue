@@ -1,6 +1,28 @@
 <script setup>
-import { currentUser } from '../utils/auth'
+import { ref } from 'vue';
+
+const cards = [
+  { id: 'QA-Test', label: 'QA - Тестирование' },
+  { id: 'FrontEnd-Dev', label: 'Front End разработчик' },
+  { id: 'mobile-Dev', label: 'Мобильный разработчик' },
+  // Добавьте больше карточек по мере необходимости
+];
+
+const currentCard = ref(0); // Начинаем с первой карточки
+
+const nextCard = () => {
+  if (currentCard.value < cards.length - 1) {
+    currentCard.value += 1;
+  }
+};
+
+const prevCard = () => {
+  if (currentCard.value > 0) {
+    currentCard.value -= 1;
+  }
+};
 </script>
+
 
 <template>
   <main class="cabinet">
@@ -10,29 +32,24 @@ import { currentUser } from '../utils/auth'
     <div class="details">
       <section class="interviews-section">
         <h3>Пройденные собеседования</h3>
-        <div class="interview-cards">
-          <!-- Карточка 1 -->
-          <div class="card-container">
-            <div class="card" id="QA-Test"></div>
-            <div class="card-label">QA - Тестирование</div>
+        <div class="carousel">
+          <div class="interview-cards" :style="{ transform: `translateX(${-currentCard * 370}px)` }">
+            <div
+              v-for="(card, index) in cards"
+              :key="index"
+              class="card-container"
+            >
+              <div class="card" :id="card.id"></div>
+              <div class="card-label">{{ card.label }}</div>
+            </div>
           </div>
-          <!-- Карточка 2 -->
-          <div class="card-container">
-            <div class="card" id="FrontEnd-Dev"></div>
-            <div class="card-label">Front End разработчик</div>
-          </div>
-          <!-- Карточка 3 -->
-          <div class="card-container">
-            <div class="card" id="mobile-Dev"></div>
-            <div class="card-label">Мобильный разработчик</div>
-          </div>
-          <!-- Добавьте больше карточек по мере необходимости -->
+          <button class="carousel-button prev" @click="prevCard">&#10094;</button>
+          <button class="carousel-button next" @click="nextCard">&#10095;</button>
         </div>
       </section>
 
       <section class="department-results">
         <h3>Результаты отдела</h3>
-
       </section>
     </div>
   </main>
@@ -55,19 +72,13 @@ h2 {
   margin-top: 0;
 }
 
-.username {
-  font-size: 1.4rem;
-  color: #4CAF50;
-  font-weight: 500;
-}
-
 .interviews-section,
 .department-results {
   margin: 2rem 0;
   padding: 2rem;
   background: #c5ecff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
@@ -79,67 +90,77 @@ h3 {
   text-align: center;
 }
 
+.carousel {
+  position: relative;
+  overflow: hidden; /* Скрываем всё, что выходит за пределы */
+  width: 100%; /* Ширина контейнера */
+}
+
 .interview-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Карточки по 150px в ширину */
-  gap: 1.5rem;
+  display: flex;
+  transition: transform 0.5s ease; /* Плавный переход */
+  gap: 1rem; /* Расстояние между карточками */
+  width: max-content; /* Ширина контейнера равна сумме ширины всех карточек */
 }
 
 .card-container {
+  flex: 0 0 500px; /* Фиксированная ширина карточки */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem; /* Расстояние между карточкой и текстом */
+  gap: 0.5rem;
 }
 
 .card {
-  width: 270px;
-  height: 270px;
+  width: 500px; /* Ширина карточки */
+  height: 500px; /* Высота карточки */
   background: #f8f9fa;
   border: solid #6BB8FF 1px;
   border-radius: 60px;
-  background-size: cover; /* Чтобы изображение заполняло карточку */
-  background-position: center; /* Центрируем изображение */
+  background-size: cover;
+  background-position: center;
 }
 
 .card-label {
   text-align: center;
-  font-size: 16px; /* Размер текста */
+  font-size: 16px;
   color: #2c3e50;
 }
 
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #2c3e50;
+  z-index: 10; /* Стрелки поверх карточек */
+}
+
+.carousel-button.prev {
+  left: 10px; /* Расположение левой стрелки */
+}
+
+.carousel-button.next {
+  right: 10px; /* Расположение правой стрелки */
+}
+
+.carousel-button:hover {
+  color: #4CAF50;
+}
+
 #QA-Test {
-  background: url(/public/img/QA-Test.png) no-repeat center center/cover;;
+  background: url(/public/img/QA-Test.png) no-repeat center center/cover;
+  opacity: 50%;
 }
 
 #FrontEnd-Dev {
-  background: url(/public/img/FrontEnd-Dev.png) no-repeat center center/cover;;
+  background: url(/public/img/FrontEnd-Dev.png) no-repeat center center/cover;
 }
 
 #mobile-Dev {
-  background: url(/public/img/mobile-Dev.png) no-repeat center center/cover;;
-}
-
-.stats {
-  display: flex;
-  gap: 2rem;
-  margin-top: 1.5rem;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1rem;
-  flex: 1;
-}
-
-.stat-value {
-  font-size: 2.2rem;
-  color: #4CAF50;
-  font-weight: 600;
-}
-
-.stat-label {
-  color: #7f8c8d;
-  margin-top: 0.5rem;
+  background: url(/public/img/mobile-Dev.png) no-repeat center center/cover;
 }
 </style>
