@@ -32,16 +32,7 @@ import { currentUser } from '../utils/auth'
 
       <section class="department-results">
         <h3>Результаты отдела</h3>
-        <div class="stats">
-          <div class="stat-item">
-            <div class="stat-value">85%</div>
-            <div class="stat-label">Успешных собеседований</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-value">23</div>
-            <div class="stat-label">Новых сотрудников</div>
-          </div>
-        </div>
+
       </section>
     </div>
   </main>
