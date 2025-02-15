@@ -27,6 +27,7 @@ html, body {
 
 .main-content {
   flex: 1;
-  padding: 2rem;
+  background: #c5ecff;
+  border: 1px solid #6bb8ff;
 }
 </style>

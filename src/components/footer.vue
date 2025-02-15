@@ -4,22 +4,21 @@
 <template>
   <footer class="app-footer">
     <div class="footer-content">
-      <p>My App 1.0 © 2024. Все права защищены.</p>
+      <p>Футер</p>
     </div>
   </footer>
 </template>
 
 <style scoped>
 .app-footer {
-  background: #292c31;
-  color: white;
-  padding: 1rem 2rem;
-  margin-top: auto;
+  background: #ffffff;
+  padding: 2rem;
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
+.footer-content p {
+  font-size: 1rem;
+  color: black;
   text-align: center;
+  margin: 0;
 }
 </style>

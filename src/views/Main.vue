@@ -10,26 +10,37 @@ document.querySelector('main').style.display = 'block'
 
 <template>
   <main class="main-content">
-    <h2>Готов к собеседованию</h2>
-    <p>Все права на страницах<br>У 7</p>
+    <div class="hero-section">
+      <h1>Готов к собеседованию</h1>
+      <div class="divider"></div>
+    </div>
   </main>
 </template>
 
 <style scoped>
 .main-content {
-  padding: 2rem;
+  padding: 4rem 2rem;
+  min-height: calc(100vh - 160px);
+  background: #f8f9fa;
+}
+
+.hero-section {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
 
-h2 {
+h1 {
+  font-size: 2.5rem;
   color: #2c3e50;
-  margin-bottom: 1rem;
-  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
 }
 
-p {
-  color: #666;
-  line-height: 1.6;
-  font-size: 1.2rem;
+.divider {
+  width: 60px;
+  height: 4px;
+  background: #4CAF50;
+  margin: 2rem auto;
 }
 </style>

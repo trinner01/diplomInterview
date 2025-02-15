@@ -104,8 +104,9 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #292c31;
+  background: #c5ecff;
   color: white;
+  height: 52px;
 }
 
 .auth-buttons button {
@@ -180,5 +181,25 @@ header {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+.title {
+  color: black;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.auth-buttons button {
+  transition: all 0.3s ease;
+}
+
+.auth-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.modal-content {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 </style>
