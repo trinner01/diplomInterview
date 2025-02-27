@@ -11,15 +11,11 @@ const cards = [
 const currentCard = ref(0); // Начинаем с первой карточки
 
 const nextCard = () => {
-  if (currentCard.value < cards.length - 1) {
-    currentCard.value += 1;
-  }
+  currentCard.value = (currentCard.value + 1) % cards.length;
 };
 
 const prevCard = () => {
-  if (currentCard.value > 0) {
-    currentCard.value -= 1;
-  }
+  currentCard.value = (currentCard.value - 1 + cards.length) % cards.length;
 };
 </script>
 
@@ -33,7 +29,10 @@ const prevCard = () => {
       <section class="interviews-section">
         <h3>Пройденные собеседования</h3>
         <div class="carousel">
-          <div class="interview-cards" :style="{ transform: `translateX(${-currentCard * 370}px)` }">
+          <div
+            class="interview-cards"
+            :style="{ transform: `translateX(-${currentCard * 100}%)` }"
+          >
             <div
               v-for="(card, index) in cards"
               :key="index"
@@ -99,12 +98,11 @@ h3 {
 .interview-cards {
   display: flex;
   transition: transform 0.5s ease; /* Плавный переход */
-  gap: 1rem; /* Расстояние между карточками */
-  width: max-content; /* Ширина контейнера равна сумме ширины всех карточек */
+  width: 100%; /* Ширина контейнера */
 }
 
 .card-container {
-  flex: 0 0 500px; /* Фиксированная ширина карточки */
+  flex: 0 0 100%; /* Каждая карточка занимает 100% ширины */
   display: flex;
   flex-direction: column;
   align-items: center;
