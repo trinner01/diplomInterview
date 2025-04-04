@@ -46,10 +46,6 @@ const prevCard = () => {
           <button class="carousel-button next" @click="nextCard">&#10095;</button>
         </div>
       </section>
-
-      <section class="department-results">
-        <h3>Результаты отдела</h3>
-      </section>
     </div>
   </main>
 </template>
@@ -69,15 +65,6 @@ h2 {
   color: #2c3e50;
   margin-bottom: 1rem;
   margin-top: 0;
-}
-
-.interviews-section,
-.department-results {
-  margin: 2rem 0;
-  padding: 2rem;
-  background: #c5ecff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
