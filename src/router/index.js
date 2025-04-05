@@ -15,6 +15,11 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
+      path: '/quiz/:category',
+      name: 'Quiz',
+      component: () => import('../Quiz/Quiz.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/'
     }

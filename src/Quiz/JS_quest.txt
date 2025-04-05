@@ -1,0 +1,100 @@
+Что такое JavaScript и для чего он используется?
+Какие типы данных существуют в JavaScript?
+Что такое переменные и как их объявлять?
+В чем разница между var, let и const?
+Как работает область видимости переменных в JavaScript?
+Что такое хостинг переменных?
+Как работает оператор typeof?
+Что такое строгий режим ("use strict")?
+Как работают функции в JavaScript?
+Что такое анонимные функции?
+Что такое функции-стрелки (arrow functions)?
+В чем разница между function и arrow function?
+Что такое замыкания (closures)?
+Как работает контекст выполнения (execution context)?
+Что такое this в JavaScript?
+Как работает механизм наследования в JavaScript?
+Что такое прототипы и как они работают?
+В чем разница между call, apply и bind?
+Что такое события и как их обрабатывать?
+Как работает механизм всплытия событий (event bubbling)?
+Что такое делегирование событий?
+Как работает асинхронное программирование в JavaScript?
+Что такое промисы (promises) и как их использовать?
+Что такое async и await?
+В чем разница между Promise.all, Promise.race, Promise.allSettled и Promise.any?
+Что такое коллбэки (callbacks)?
+Как работает цикл событий (event loop)?
+Что такое setTimeout и setInterval?
+В чем разница между == и ===?
+Что такое строгие и нестрогие сравнения?
+Как работают массивы в JavaScript?
+Какие методы массивов вы знаете?
+Что такое метод map?
+Что такое метод filter?
+Что такое метод reduce?
+Как работают объекты в JavaScript?
+Как создать объект?
+Что такое методы объектов?
+Как работает оператор расширения (spread operator)?
+Что такое деструктуризация?
+Как работают классы в JavaScript?
+В чем разница между классами и функциями-конструкторами?
+Что такое статические методы и свойства?
+Как работает наследование классов?
+Что такое модули в JavaScript?
+В чем разница между import и require?
+Что такое export и import?
+Как работает default export?
+Что такое DOM (Document Object Model)?
+Как манипулировать DOM с помощью JavaScript?
+Как создать элемент в DOM?
+Как удалить элемент из DOM?
+Как изменить стиль элемента с помощью JavaScript?
+Что такое querySelector и querySelectorAll?
+Как работает addEventListener?
+Что такое localStorage и sessionStorage?
+В чем разница между localStorage и sessionStorage?
+Как работают куки (cookies)?
+Что такое AJAX и как его использовать?
+Что такое fetch API?
+В чем разница между fetch и XMLHttpRequest?
+Что такое CORS (Cross-Origin Resource Sharing)?
+Как работает JSON?
+Что такое методы JSON.parse и JSON.stringify?
+Что такое шаблонные строки (template literals)?
+Как работают регулярные выражения в JavaScript?
+Что такое null и undefined?
+В чем разница между null и undefined?
+Что такое NaN?
+Как работает оператор ?? (nullish coalescing)?
+Что такое optional chaining?
+Как работают генераторы и yield?
+Что такое Proxy и Reflect?
+Как работает Symbol?
+Что такое BigInt?
+Как работают WeakMap и WeakSet?
+Что такое Set и Map?
+В чем разница между Set и Map?
+Что такое Promise.prototype.finally?
+Как работает Array.prototype.flat?
+Что такое Array.prototype.flatMap?
+Как работает Object.entries?
+Что такое Object.fromEntries?
+Как работает Object.values?
+Что такое Object.keys?
+Как работает Object.assign?
+Что такое Object.freeze?
+Как работает Object.seal?
+Что такое Object.is?
+Как работает Object.create?
+Что такое Object.defineProperty?
+Как работает Object.defineProperties?
+Что такое Object.getOwnPropertyDescriptor?
+Как работает Object.getOwnPropertyDescriptors?
+Что такое Object.getOwnPropertyNames?
+Как работает Object.getOwnPropertySymbols?
+Что такое Object.getPrototypeOf?
+Как работает Object.setPrototypeOf?
+Что такое Object.isExtensible?
+Как работает Object.preventExtensions?

@@ -12,7 +12,7 @@
 <style scoped>
 .app-footer {
   background: #ffffff;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .footer-content p {

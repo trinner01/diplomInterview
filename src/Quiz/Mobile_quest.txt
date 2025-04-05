@@ -1,0 +1,100 @@
+Что такое мобильная разработка и какие платформы вы знаете?
+В чем разница между iOS и Android разработкой?
+Как работает жизненный цикл Activity в Android?
+Что такое Fragment в Android и как его использовать?
+Как работает система управления памятью в Android?
+Что такое Intent в Android?
+Как работает BroadcastReceiver в Android?
+Что такое Service в Android?
+Как работает ContentProvider в Android?
+Что такое Android Jetpack?
+Как использовать LiveData в Android?
+Что такое ViewModel в Android?
+Как работает Room для управления базами данных в Android?
+Что такое DataBinding в Android?
+Как использовать Retrofit для сетевых запросов в Android?
+Что такое RxJava и как его использовать?
+Как работает система разрешений в Android?
+Что такое ProGuard и как его использовать?
+Как работает система сборки Gradle в Android?
+Что такое NDK и как его использовать?
+Как работает система уведомлений в Android?
+Что такое Firebase и как его использовать?
+Как работает Google Play Services?
+Что такое Kotlin и в чем его преимущества?
+Как использовать Coroutines в Kotlin?
+Что такое ARCore и как его использовать?
+Как работает система геолокации в Android?
+Что такое Android Architecture Components?
+Как использовать Dagger для внедрения зависимостей?
+Что такое Android Jetpack Compose?
+Как работает система анимаций в Android?
+Что такое Custom Views в Android?
+Как использовать Canvas для рисования в Android?
+Что такое Android TV и как его поддерживать?
+Как работает Wear OS?
+Что такое Android Auto и как его поддерживать?
+Как использовать Android Things для IoT?
+Что такое Flutter и как его использовать?
+В чем разница между Flutter и React Native?
+Как работает Dart в Flutter?
+Что такое Widgets в Flutter?
+Как использовать StatefulWidget и StatelessWidget в Flutter?
+Что такое State Management в Flutter?
+Как работает Navigator в Flutter?
+Что такое Bloc в Flutter?
+Как использовать Provider в Flutter?
+Что такое Riverpod в Flutter?
+Как работает система плагинов в Flutter?
+Что такое Hot Reload в Flutter?
+Как использовать Firebase в Flutter?
+Что такое React Native и как его использовать?
+В чем разница между React Native и Native разработкой?
+Как работает JSX в React Native?
+Что такое компоненты в React Native?
+Как использовать Redux в React Native?
+Что такое Context API в React Native?
+Как работает Navigation в React Native?
+Что такое Expo и как его использовать?
+Как использовать Native Modules в React Native?
+Что такое Hermes и как его использовать?
+Как работает Code Push в React Native?
+Что такое Swift и как его использовать?
+В чем разница между Swift и Objective-C?
+Как работает ARC (Automatic Reference Counting) в iOS?
+Что такое UIKit в iOS?
+Как использовать Auto Layout в iOS?
+Что такое Storyboards в iOS?
+Как работает Core Data в iOS?
+Что такое SwiftUI и как его использовать?
+Как использовать Combine в Swift?
+Что такое Grand Central Dispatch (GCD) в iOS?
+Как работает Operation Queue в iOS?
+Что такое Core Animation в iOS?
+Как использовать Core Graphics в iOS?
+Что такое Core ML и как его использовать?
+Как работает ARKit в iOS?
+Что такое CloudKit и как его использовать?
+Как работает Push Notifications в iOS?
+Что такое In-App Purchases в iOS?
+Как использовать HealthKit в iOS?
+Что такое HomeKit и как его использовать?
+Как работает WatchKit в iOS?
+Что такое CarPlay и как его поддерживать?
+Как использовать Xcode для разработки iOS?
+Что такое CocoaPods и как его использовать?
+Как работает Carthage в iOS?
+Что такое Swift Package Manager?
+Как использовать Fastlane для автоматизации сборки?
+Что такое TestFlight и как его использовать?
+Как работает Instruments в Xcode?
+Что такое XCTest и как его использовать?
+Как проводить UI тестирование в iOS?
+Что такое Accessibility в iOS?
+Как использовать Localization в iOS?
+Что такое Internationalization в iOS?
+Как работает App Thinning в iOS?
+Что такое Bitcode в iOS?
+Как использовать On-Demand Resources в iOS?
+Что такое App Store Optimization (ASO)?
+Как работает система рейтингов и отзывов в App Store?

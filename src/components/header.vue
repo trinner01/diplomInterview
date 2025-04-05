@@ -1,3 +1,47 @@
+<template>
+  <header>
+    <router-link to="/" class="title-link">
+      <h1 class="title">Готов к собеседованию</h1>
+    </router-link>
+    <div class="auth-section">
+      <span v-if="currentUser" class="user-info">
+        <router-link to="/cabinet" class="cabinet-link">Личный кабинет</router-link>
+        <button @click="handleLogout" class="logout-btn">Выйти</button>
+      </span>
+      <div v-else class="auth-buttons">
+        <button @click="showRegister = true">Регистрация</button>
+        <button @click="showLogin = true">Вход</button>
+      </div>
+    </div>
+
+    <!-- Модальное окно регистрации -->
+    <div v-if="showRegister" class="modal-overlay" @click="showRegister = false">
+      <div class="modal-content" @click.stop>
+        <h3>Регистрация</h3>
+        <input v-model="regUsername" placeholder="Имя пользователя">
+        <input v-model="regPassword" type="password" placeholder="Пароль">
+        <div class="modal-actions">
+          <button @click="handleRegister">Зарегистрироваться</button>
+          <button @click="showRegister = false">Отмена</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно входа -->
+    <div v-if="showLogin" class="modal-overlay" @click="showLogin = false">
+      <div class="modal-content" @click.stop>
+        <h3>Вход</h3>
+        <input v-model="loginUsername" placeholder="Имя пользователя">
+        <input v-model="loginPassword" type="password" placeholder="Пароль">
+        <div class="modal-actions">
+          <button @click="handleLogin">Войти</button>
+          <button @click="showLogin = false">Отмена</button>
+        </div>
+      </div>
+    </div>
+  </header>
+</template>
+
 <script setup>
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
@@ -23,7 +67,7 @@ const handleRegister = () => {
       alert('Заполните все поля!')
       return
     }
-    
+
     registerUser(regUsername.value, regPassword.value)
     alert('Регистрация успешна!')
     showRegister.value = false
@@ -40,7 +84,7 @@ const handleLogin = () => {
       alert('Заполните все поля!')
       return
     }
-    
+
     loginUser(loginUsername.value, loginPassword.value)
     alert(`Добро пожаловать, ${currentUser.value.username}!`)
     showLogin.value = false
@@ -52,51 +96,9 @@ const handleLogin = () => {
 }
 const handleLogout = () => {
   logoutUser()
-  // Используем именованный маршрут с учетом basePath
   router.push({ name: 'Home' }).catch(() => {})
 }
-
 </script>
-
-<template>
-  <header>
-    <h1 class="title">Готов к собеседованию</h1>
-    <div class="auth-section">
-      <span v-if="currentUser" class="user-info">
-        <router-link to="/cabinet" class="cabinet-link">Личный кабинет</router-link>
-        <button @click="handleLogout" class="logout-btn">Выйти</button>
-      </span>
-      <div v-else class="auth-buttons">
-        <button @click="showRegister = true">Регистрация</button>
-        <button @click="showLogin = true">Вход</button>
-      </div>
-    </div>
-
-    <div v-if="showRegister" class="modal">
-      <div class="modal-content">
-        <h3>Регистрация</h3>
-        <input v-model="regUsername" placeholder="Имя пользователя">
-        <input v-model="regPassword" type="password" placeholder="Пароль">
-        <div class="modal-actions">
-          <button @click="handleRegister">Зарегистрироваться</button>
-          <button @click="showRegister = false">Отмена</button>
-        </div>
-      </div>
-    </div>
-
-    <div v-if="showLogin" class="modal">
-      <div class="modal-content">
-        <h3>Вход</h3>
-        <input v-model="loginUsername" placeholder="Имя пользователя">
-        <input v-model="loginPassword" type="password" placeholder="Пароль">
-        <div class="modal-actions">
-          <button @click="handleLogin">Войти</button>
-          <button @click="showLogin = false">Отмена</button>
-        </div>
-      </div>
-    </div>
-  </header>
-</template>
 
 <style scoped>
 header {
@@ -109,6 +111,11 @@ header {
   height: 52px;
 }
 
+.title-link {
+  text-decoration: none;
+  color: inherit;
+}
+
 .auth-buttons button {
   margin-left: 1rem;
   padding: 0.5rem 1rem;
@@ -119,16 +126,17 @@ header {
   color: white;
 }
 
-.modal {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5); /* Затемнение фона */
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1000; /* Убедитесь, что модальное окно поверх всего */
 }
 
 .modal-content {
@@ -137,6 +145,7 @@ header {
   border-radius: 8px;
   width: 300px;
   color: #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .modal-content input {
@@ -174,7 +183,7 @@ header {
 }
 
 .cabinet-link:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .user-info {
@@ -196,10 +205,6 @@ header {
 
 .auth-buttons button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.modal-content {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 </style>

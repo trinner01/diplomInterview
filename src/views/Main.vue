@@ -1,7 +1,9 @@
 <template>
   <main class="main-page">
     <div class="header">
-      <h1>Выберите специальность для подготовки</h1>
+      <router-link to="/" class="title-link">
+        <h1 class="title">Выберите специальность для подготовки</h1>
+      </router-link>
     </div>
     <div class="content">
       <section class="interviews-section">
@@ -10,6 +12,7 @@
             v-for="(card, index) in cards"
             :key="index"
             class="card-container"
+            @click="startQuiz(card.id)"
           >
             <div class="card" :id="card.id"></div>
             <div class="card-label">{{ card.label }}</div>
@@ -22,13 +25,24 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const cards = [
-  { id: 'QA-Test', label: 'QA - Тестирование' },
-  { id: 'FrontEnd-Dev', label: 'Front End разработчик' },
-  { id: 'mobile-Dev', label: 'Мобильный разработчик' },
-  // Добавьте больше карточек по мере необходимости
+  { id: 'QA', label: 'QA - Тестирование' },
+  { id: 'FrontEnd', label: 'Front End разработчик' },
+  { id: 'Mobile', label: 'Мобильный разработчик' },
+  { id: 'BackEnd', label: 'BackEnd разработчик' },
+  { id: 'FullStack', label: 'FullStack разработчик' },
+  { id: 'JS', label: 'JavaScript разработчик' },
+  { id: 'SysAdm', label: 'Системный администратор' },
+  { id: 'Game', label: 'Разработчик игр' },
 ];
+
+const startQuiz = (category) => {
+  router.push({ name: 'Quiz', params: { category } });
+};
 </script>
 
 <style scoped>
@@ -71,6 +85,11 @@ h3 {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  transition: transform 0.3s ease; /* Плавное увеличение */
+}
+
+.card-container:hover {
+  transform: scale(1.05); /* Увеличение при наведении */
 }
 
 .card {
@@ -89,16 +108,18 @@ h3 {
   color: #2c3e50;
 }
 
-#QA-Test {
+#QA_img {
   background: url(/public/img/QA-Test.png) no-repeat center center/cover;
-  opacity: 50%;
+  opacity: 80%;
 }
 
-#FrontEnd-Dev {
+#FrontEnd_img {
   background: url(/public/img/FrontEnd-Dev.png) no-repeat center center/cover;
+  opacity: 80%;
 }
 
-#mobile-Dev {
+#Mobile_img {
   background: url(/public/img/mobile-Dev.png) no-repeat center center/cover;
+  opacity: 80%;
 }
 </style>
